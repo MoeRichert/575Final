@@ -1,0 +1,26 @@
+
+var ustates
+var seStates
+var counties
+var basemap
+var expressedField;
+var attributes;
+var sliderval;
+var mymap;
+var width;
+var height;
+
+
+mymap = L.map
+
+var props =
+attribute = expressedField
+
+index = (set value in slider function)
+
+feature
+latlng
+attValue
+attributes
+
+
