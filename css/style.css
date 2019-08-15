@@ -11,7 +11,7 @@ html, body {
 }
 
 /*LEAFLET MAP*/
-#map {
+map {
     height: 50vh;
 }
 .leaflet-popup-content p {
