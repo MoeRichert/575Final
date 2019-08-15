@@ -7,12 +7,6 @@ function initialize() {
     // show splash modal on first run
     $("#splashModal").modal('show');
 
-
-    // for testing, to load alternate scripts
-    //getExternal();
-};
-
-function initialize(){
 	getData();
 };
 
@@ -62,27 +56,32 @@ function callback(){
 // sets map element and its properties
 function createMap(){
 
-	// create map, map div, and map's initial view
-	mymap = L.map
+	let tilesStreets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery   <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoiamhjYXJuZXkiLCJhIjoiY2pmbHE2ZTVlMDJnbTJybzdxNTNjaWsyMiJ9.hoiyrXTX3pOuEExAnhUtIQ'
+    });
+    let tilesAerial = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery   <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.satellite',
+        accessToken: 'pk.eyJ1IjoiamhjYXJuZXkiLCJhIjoiY2pmbHE2ZTVlMDJnbTJybzdxNTNjaWsyMiJ9.hoiyrXTX3pOuEExAnhUtIQ'
+    });
+    let baseTilesets = {
+        "Streets": tilesStreets,
+        "Aerial": tilesAerial
+    };
 
-	// set map boundaries
-	
-	// tile layer
-	basemap.addTo(mymap);
+    // map, add one basemap
+    var map = map = L.map('map',{
+        center: [65.3129, -151.3130],
+        zoom: 4,
+        layers: [tilesStreets]
+    });
 
-	// add navigation bar to the map
-	L.control.navbar().addTo(mymap);
-	
-	//add southern states
-	
-	// add state borders
-
-	// when the map zooms, change the display level
-	mymap.on('zoomend', function (e) {
-		changeLayers(mymap);
-	});
-	layers();
-
+    // add basemap control
+    L.control.layers(baseTilesets).addTo(map);
 }; // close to createMap
 
 // Changes layers based on the zoom level
