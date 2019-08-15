@@ -1,2 +1,42 @@
-.body {
+.body{
+    background:lightgray;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    height: 50vh;
+}
+
+.legend-control-container {
+    width: 260px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0px;
+    padding-bottom: 5px;
+    line-height: 30px;
+    text-align: center;
+    border: solid gray 1px;
+    font-weight: bold;
+}
+
+#canvasHolder {
+    height: 19vh;
+}
+
+.slider {
+    width: 60% !important;
+}
+
+body {
+    padding: 1rem;
+}
+
+.dropdown-menu {
+    margin-top: .75rem;
 }
