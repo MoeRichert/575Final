@@ -6,38 +6,32 @@ function initialize() {
     mapSizer(mymap());
     // show splash modal on first run
     $("#splashModal").modal('show');
+    //get data
+    getData();
 };
 
-function mymap() {
+function initialize(){
+	getData();
+};
+
 // global layers
-var ustates = 
-var seStates = 
-var counties = 
-var basemap = ('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-	maxZoom: 16
-	
-};
-
-    // map, add one basemap
-    var map = map = L.map('map',{
-        center: [33.836082, -81.163727],
-        zoom: 4,
-        layers: [basemap]	
-});
-L.control.layers(basemap).addTo(map);
-
-//function to translate topojsons
+var SimpleDisplay = L.layerGroup();
+var OtherDisplay = L.layerGroup();
 
 // global variables
 var expressedField;
 var attributes;
 var sliderval;
 var mymap;
-//chart width and height
-
-var width = ;
-var height = ;
+var width = 500,
+    height = 600;
+    
+    //create new svg container for the map
+    var map = d3.select("body")
+        .append("svg")
+        .attr("class", "map")
+        .attr("width", width)
+        .attr("height", height);
 
 //scales
 var x = d3.scaleLinear()
@@ -52,16 +46,78 @@ var y = d3.scaleLinear()
 function getData(mymap) {
 
 	d3.queue()
-			
+        d3.queue()
+        .defer(d3.csv, "data/FEMADeclarations.csv") //load csv
+        .defer(d3.json, "data/US_States.topojson") //load background
+        .defer(d3.json, "data/States.topojson")
+        .defer(d3.json, "data/Counties.topojson") //load analysis spatial data
+        .await(callback);
+    
+function callback(error, csvData, usStates, selectStates, rawCounties){
+    
+    //translate TopoJSON
+        var procallStates = topojson.feature(usStates, usStates.objects.US_States),
+            procselectStates = topojson.feature(selectStates, selectStates.objects.States),
+            procCounties = topojson.feature(county, county.objects.Counties).features;
+    
+    //attribute array
+        attrArray = CSVATTRIBUTES
+        
+        //join csv data to GeoJSON
+        CountiesData = mergeData(procCounties, csvData, attrArray);
+    
+    //process for leaflet
+    var states = new L.GeoJSON.AJAX(procallStates, {style: statesStyle});
+    var seStates = new L.GeoJSON.AJAX(proselectStates, {style: seStyle});
+    var counties = new L.GeoJSON.AJAX(procCounties, {style: countyStyle}).bringToBack();
+    var basemap = ('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16;
+    
+    createMap(map, states, seStates, counties, csvData, CountiesData);
+    createCharts();
+    createTogglesorDropdowns();
+    
+}; //callback
+
 }; // close to getData
 
-// callback for data viz
-function callback(){
-    createMap(
-    createCharts(
-    createTogglesorDropdowns(
-};
+// sets map element and its properties
+function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
 
+// create map, map div, and map's initial view
+	mymap = L.map('map', {
+        // set map boundaries
+        // Set latitude and longitude of the map center
+        center: [33.836082, -81.163727],
+        // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
+        zoom: 4,
+        layers: [SimpleDisplay]
+        
+        addData(mymap, background, largegroup, zoomgroup, csvData)
+    });
+        
+function addData(mymap, background, largegroup, zoomgroup, csvData){    
+    // tile layer
+    basemap.addTo(mymap);
+
+	// add navigation bar to the map
+	L.control.navbar().addTo(mymap);
+	
+	//add southern states
+    seStates.addTo(mymap).bringToFront();
+	
+	// add state borders
+    states.addTo(mymap).bringToBack();
+
+	// when the map zooms, change the display level
+	mymap.on('zoomend', function (e) {
+		changeLayers(mymap);
+	});
+	layers(mymap, state_eventsJSON, county_eventsJSON, csvData, county_eventsCSV);
+    
+};
+// close to addData
 
 // Changes layers based on the zoom level
 function changeLayers(mymap) {
@@ -74,7 +130,6 @@ function changeLayers(mymap) {
 		//sestates.bringToBack();
 	};
 };
-
 
 // function to add the initial layer
 function layers() {
