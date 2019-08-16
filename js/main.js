@@ -6,15 +6,18 @@ function initialize() {
     mapSizer(myMap());
     // show splash modal on first run
     $("#splashModal").modal('show');
-
-	getData();
 };
 
 // global layers
 var ustates = 
 var seStates = 
 var counties = 
-var basemap = L.tileLayer
+var basemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 0,
+	maxZoom: 20,
+	ext: 'png'
 });
 
 //function to translate topojsons
@@ -52,28 +55,6 @@ function callback(){
     createTogglesorDropdowns(
 };
 
-
-// sets map element and its properties
-function createMap(){
-
-	let tilesStreets = L.tileLayer(L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}, {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
-    };
-
-    // map, add one basemap
-    var map = map = L.map('map',{
-        center: [65.3129, -151.3130],
-        zoom: 4,
-        layers: [tilesStreets]
-    };
-
-    // add basemap control
-    L.control.layers(baseTilesets).addTo(map);
-}; // close to createMap
 
 // Changes layers based on the zoom level
 function changeLayers(mymap) {
