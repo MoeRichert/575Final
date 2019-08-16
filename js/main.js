@@ -19,6 +19,7 @@ var basemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/
 	maxZoom: 20,
 	ext: 'png'
 });
+L.control.layers(basemap).addTo(map);
 
 //function to translate topojsons
 
