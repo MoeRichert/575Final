@@ -69,7 +69,7 @@ function createMap(){
         center: [65.3129, -151.3130],
         zoom: 4,
         layers: [tilesStreets]
-    });
+    };
 
     // add basemap control
     L.control.layers(baseTilesets).addTo(map);
