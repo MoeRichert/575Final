@@ -19,6 +19,14 @@ var basemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/
 	minZoom: 0,
 	maxZoom: 20,
 	ext: 'png'
+	
+};
+
+    // map, add one basemap
+    var map = map = L.map('map',{
+        center: [33.836082, -81.163727],
+        zoom: 4,
+        layers: [basemap]	
 });
 L.control.layers(basemap).addTo(map);
 
