@@ -131,7 +131,7 @@ function callback(error, csvData, usStates, selectStates, rawCounties){
 function createMap(mapcall, background, largegroup, zoomgroup, csvData, georefData){
 
 // create map, map div, and map's initial view
-	mymap = L.mapcall('map', {
+	mymap = L.map('map', {
         // set map boundaries
         // Set latitude and longitude of the map center
         center: [38.99766, -100.90838],
