@@ -11,9 +11,16 @@ html, body {
 }
 
 stateStyle {
-    fill: #f0f0f0
+    fill:
 }
 
+seStyle {
+    fill:
+}
+
+countyStyle {
+    fill:
+}
 
 
 body {
