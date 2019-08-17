@@ -16,11 +16,11 @@ var width = 500,
     height = 600;
 
     //create new svg container for the map
-    var map = d3.select("body")
-        .append("svg")
-        .attr("class", "map")
-        .attr("width", width)
-        .attr("height", height);
+var map = d3.select("body")
+    .append("svg")
+    .attr("class", "map")
+    .attr("width", width)
+    .attr("height", height);
 
 //scales
 var x = d3.scaleLinear()
@@ -69,6 +69,7 @@ function callback(error, csvData, usStates, selectStates, rawCounties){
 
 }; // close to getData
 
+window.onload = createMap();
 // sets map element and its properties
 function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
 
