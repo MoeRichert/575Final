@@ -67,7 +67,6 @@ function callback(error, csvData, usStates, selectStates, rawCounties){
 
 }; //callback
 
-}; // close to getData
 
 window.onload = createMap();
 // sets map element and its properties
