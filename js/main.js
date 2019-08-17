@@ -1,13 +1,5 @@
 $(document).ready(initialize);
 
-// starting point for script
-function initialize() {
-    // main create returns a map
-    mapSizer(mymap());
-    // show splash modal on first run
-    $("#splashModal").modal('show');
-};
-
 function initialize(){
 	getData();
 };
