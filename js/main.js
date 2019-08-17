@@ -86,7 +86,7 @@ function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
         zoom: 4,
         layers: [SimpleDisplay]
 
-        addData(mymap, states, seStates, counties, csvData)
+        addData(mymap, states, seStates, counties, csvData);
 			)}
     });
 
