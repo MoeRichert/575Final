@@ -6,8 +6,6 @@ function initialize() {
     mapSizer(mymap());
     // show splash modal on first run
     $("#splashModal").modal('show');
-    //get data
-    getData();
 };
 
 function initialize(){
@@ -25,7 +23,7 @@ var sliderval;
 var mymap;
 var width = 500,
     height = 600;
-    
+
     //create new svg container for the map
     var map = d3.select("body")
         .append("svg")
@@ -52,20 +50,20 @@ function getData(mymap) {
         .defer(d3.json, "data/States.topojson")
         .defer(d3.json, "data/Counties.topojson") //load analysis spatial data
         .await(callback);
-    
+
 function callback(error, csvData, usStates, selectStates, rawCounties){
-    
+
     //translate TopoJSON
         var procallStates = topojson.feature(usStates, usStates.objects.US_States),
             procselectStates = topojson.feature(selectStates, selectStates.objects.States),
             procCounties = topojson.feature(county, county.objects.Counties).features;
-    
+
     //attribute array
         attrArray = CSVATTRIBUTES
-        
+
         //join csv data to GeoJSON
         CountiesData = mergeData(procCounties, csvData, attrArray);
-    
+
     //process for leaflet
     var states = new L.GeoJSON.AJAX(procallStates, {style: statesStyle});
     var seStates = new L.GeoJSON.AJAX(proselectStates, {style: seStyle});
@@ -73,11 +71,11 @@ function callback(error, csvData, usStates, selectStates, rawCounties){
     var basemap = ('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
 	maxZoom: 16;
-    
+
     createMap(map, states, seStates, counties, csvData, CountiesData);
     createCharts();
     createTogglesorDropdowns();
-    
+
 }; //callback
 
 }; // close to getData
@@ -93,20 +91,20 @@ function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
         // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
         zoom: 4,
         layers: [SimpleDisplay]
-        
+
         addData(mymap, background, largegroup, zoomgroup, csvData)
     });
-        
-function addData(mymap, background, largegroup, zoomgroup, csvData){    
+
+function addData(mymap, background, largegroup, zoomgroup, csvData){
     // tile layer
     basemap.addTo(mymap);
 
 	// add navigation bar to the map
 	L.control.navbar().addTo(mymap);
-	
+
 	//add southern states
     seStates.addTo(mymap).bringToFront();
-	
+
 	// add state borders
     states.addTo(mymap).bringToBack();
 
@@ -115,7 +113,7 @@ function addData(mymap, background, largegroup, zoomgroup, csvData){
 		changeLayers(mymap);
 	});
 	layers(mymap, state_eventsJSON, county_eventsJSON, csvData, county_eventsCSV);
-    
+
 };
 // close to addData
 
@@ -140,12 +138,12 @@ function layers() {
 	//geoJSON layer with leaflet is created to add data to the map
 
 		//pointToLayer is used to change the marker features to circle markers,
-		
+
 			// event listeners to open popup on hover
 	};
 
 	//function to size the overlay data according to total events
-	
+
 		//assign total disasters property to variable
 		var props = ;
 
@@ -159,12 +157,12 @@ function layers() {
 		//geoJSON layer with leaflet is created to add data to the map
 
 		//pointToLayer is used to change the marker features to circle markers,
-		
+
 			// event listeners to open popup on hover
 	};
 
 	//function to size the overlay data according to total events
-	
+
 		//assign total disasters property to variable
 		var props = ;
 
@@ -196,8 +194,8 @@ function layers() {
 
 	var activeLayer;
 
-	//responsive data display per zoom level 
-	
+	//responsive data display per zoom level
+
 	//update charts
 
 	//call dropdown
@@ -273,7 +271,7 @@ function getCircleValues(mymap, attribute){
 
 
   // input listener for slider
- 
+
     // update the proportional symbols based off of the slider
     updatePropSymbols(mymap, attributes[index]);
   });
@@ -519,6 +517,6 @@ function createDropdown(){
 
 // highlight
 
-// highlight2 
+// highlight2
 
 $(document).ready(initialize);
