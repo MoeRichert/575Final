@@ -15,7 +15,47 @@
 <!-- MAIN -->
 <main role="main ">
 
+		 <!-- MAP PAGE -->
+    <div class="container-fluid p-4 mb-3 mt-5 fadeIn" id="mainContainer">
+        <div class="row" id="rowParent">
+            <div class="col-lg-4 mb-2 mb-lg-0">
+		                   <!-- SLIDER -->
+                <div class="card mb-1">
+                    <div class="card-body">
+                        <div class="card-title h5 pb-4">
+                            <span id="titleDecade">XXXXX</span>
+                            <div class="form-group float-right top">
+                            <span class="switch switch-sm">
+                                <input type="checkbox" class="switch" id="toggleDecadeSlider">
+                                <label for="toggleDecadeSlider"></label>
+                            </span>
+                            </div>
+				 </div>
+                    </div>
+                </div>
 
+                <!-- DESCRIPTION CARD -->
+                <div class="card"  id="infoPanel">
+                    <div class="card-body">
+                        <div class="card-title h5">XXX</div>
+                        <div class="p-1" id="city">XXXXXXXXXXXXXXXXXXXXX.</div>
+                        <div class="p-1 blue-text" id="shed"></div>
+                        <div class="p-1 scroll-box" id="desc"></div>
+                        <div id="canvasHolder">
+                            <canvas id="barChart" class=""></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+				 <!-- MAP CARD -->
+            <div class="col-lg-8 mt-0 mt-lg-l">
+                <div class="card" id="mapCard">
+                    <div class="card-img rounded" id="map"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <!-- MAP PAGE -->
 
 		<script src="https://d3js.org/d3.v2.min.js"></script>
