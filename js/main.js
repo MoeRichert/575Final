@@ -73,7 +73,7 @@ function callback(error, csvData, usStates, selectStates, rawCounties){
 
 }; // close to getData
 
-//window.onload = createMap();
+window.onload = createMap();
 // sets map element and its properties
 function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
 
