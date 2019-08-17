@@ -86,7 +86,7 @@ function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
         zoom: 4,
         layers: [SimpleDisplay]
 
-        addData(mymap, background, largegroup, zoomgroup, csvData)
+        addData(mymap, states, seStates, counties, csvData)
     });
 
 function addData(mymap, background, largegroup, zoomgroup, csvData){
@@ -106,7 +106,7 @@ function addData(mymap, background, largegroup, zoomgroup, csvData){
 	mymap.on('zoomend', function (e) {
 		changeLayers(mymap);
 	});
-	layers(mymap, state_eventsJSON, county_eventsJSON, csvData, county_eventsCSV);
+	layers(mymap, states, seStates, counties, csvData);
 
 };
 // close to addData
