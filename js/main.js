@@ -22,6 +22,9 @@ var map = d3.select("body")
     .attr("width", width)
     .attr("height", height);
 
+var projection = d3.geoMercator()
+    .scale(300)
+    .translate([width / 3, height / 2]);
 
 //scales
 var x = d3.scaleLinear()
