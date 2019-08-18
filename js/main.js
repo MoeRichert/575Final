@@ -1,4 +1,4 @@
-$(document).ready(initialize);
+
 function initialize(){
 	getData();
 };
@@ -515,3 +515,5 @@ function createDropdown(){
 
 // highlight2
 */
+
+$(document).ready(initialize);
