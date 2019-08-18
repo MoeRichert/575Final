@@ -107,6 +107,27 @@ function pointToLayer(feature,latlng, attributes){
         
 };
 
+function getColor(d){
+    return d > 5 = "#ffff80" :
+           d > 10 = "#fad155" :
+           d > 15 = "#f2a72e" :
+           d > 20 = "#ad5313" :
+           d > 25 = "#6b0000" :
+}
+
+function style(feature){
+    return {
+        fillColor: getColor(feature.properties.),
+		weight: 2,
+		opacity: 1,
+		color: 'white',
+		dashArray: '3',
+		fillOpacity: 0.7
+    };
+}
+
+L.geoJson(statesData,{style:style}).addTo(map);*/
+
 /*var attValue = Number(feature.properties[attribute]);
 
 var popupContent = "<p><b>State:</b> " + feature.properties.NAME ;*/
@@ -169,6 +190,7 @@ map.addControl(new SequenceControl());
 		}
 		$('.range-slider').val(index);
         console.log(index);
+        
 		//updatePropSymbols(map, attributes[index]);
 	});
 }
