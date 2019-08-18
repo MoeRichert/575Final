@@ -58,13 +58,11 @@ function getData(map){
             //call function to create legend
             //createLegend(map, attributes);
             
-        }
+            }
     });
-}
-//Step 2: Import GeoJSON data
-function getData(map){
+
     //load the data
-    $.ajax("data/States.geojson", {
+    $.ajax("data/Counties.geojson", {
         dataType: "json",
         success: function(response){
             //create an attributes array
@@ -74,7 +72,7 @@ function getData(map){
             //call funtion to create slider
         }
     });
-}
+};
 //Step 3: build an attributes array from the data
 function processData(data){
     //empty array to hold attributes
