@@ -46,7 +46,7 @@ function createMap(){
 function getData(map){
     //load the data
     
-    $.ajax("data/States.geojson", {
+    $.ajax("data/States1.geojson", {
         dataType: "json",
         success: function(response){
             //create an attributes array
@@ -70,6 +70,7 @@ function getData(map){
             //call function to create proportional symbols
             createPropSymbols(response, map,attributes);
             //call funtion to create slider
+           
         }
     });
 };
@@ -93,5 +94,69 @@ function createPropSymbols(data, map, attributes){
         }
     }).addTo(map);
 };
+
+//Create new sequence controls
+function createSequenceControls(map, attributes){   
+    var SequenceControl = L.Control.extend({
+        options: {
+            position: 'bottomleft'
+        },
+        onAdd: function (map) {
+            // create the control container div with a particular class name
+            var container = L.DomUtil.create('div', 'sequence-control-container');
+
+            //create range input element (slider)
+            $(container).append('<input class="range-slider" type="range">');
+
+            //add skip buttons
+            $(container).append('<button class="skip" id="reverse" title="Reverse">Reverse</button>');
+            $(container).append('<button class="skip" id="forward" title="Forward">Skip</button>');
+
+
+            //kill any mouse event listeners on the map
+            $(container).on('mousedown dblclick', function(e){
+                L.DomEvent.stopPropagation(e);
+                map.dragging.disable();
+            });
+
+            return container;
+        }
+    });
+
+map.addControl(new SequenceControl());
+
+	//set slider attributes
+	$('.range-slider').attr({
+		max: 6,
+		min: 0,
+		value: 0,
+		step: 1
+	});
+
+	// create slider event handler
+	$('.range-slider').on('input', function () {
+		var index = $(this).val();
+		$('#year').html(attributes[index]);
+		updatePropSymbols(map, attributes[index]);
+	});
+
+
+	//create button event handler
+	$('.skip').click(function () {
+		var index = $('.range-slider').val();
+		if ($(this).attr('id') == 'forward') {
+			index++;
+			index = index > 6 ? 0 : index;
+		} else if ($(this).attr('id') == 'reverse') {
+			index--;
+			index = index < 0 ? 6 : index;
+		}
+		$('.range-slider').val(index);
+        console.log(index);
+		updatePropSymbols(map, attributes[index]);
+	});
+}
+
+
 
 $(document).ready(createMap);
