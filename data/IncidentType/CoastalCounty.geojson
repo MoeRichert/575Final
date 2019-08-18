@@ -1,0 +1,401 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -80.7012024,-80.7012024 ]
+    },
+    "properties": {
+    "CountyFull":"Brevard  FL",
+    "State":"FL",
+    "County":"Brevard ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Brevard, FL",
+    "trimmed":"Brevard"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.9503021,-81.9503021 ]
+    },
+    "properties": {
+    "CountyFull":"Charlotte  FL",
+    "State":"FL",
+    "County":"Charlotte ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Charlotte, FL",
+    "trimmed":"Charlotte"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.3809967,-81.3809967 ]
+    },
+    "properties": {
+    "CountyFull":"Collier  FL",
+    "State":"FL",
+    "County":"Collier ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Collier, FL",
+    "trimmed":"Collier"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.8094025,-81.8094025 ]
+    },
+    "properties": {
+    "CountyFull":"DeSoto  FL",
+    "State":"FL",
+    "County":"DeSoto ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"DeSoto, FL",
+    "trimmed":"DeSoto"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -83.1869965,-83.1869965 ]
+    },
+    "properties": {
+    "CountyFull":"Dixie  FL",
+    "State":"FL",
+    "County":"Dixie ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Dixie, FL",
+    "trimmed":"Dixie"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.2929993,-81.2929993 ]
+    },
+    "properties": {
+    "CountyFull":"Flagler  FL",
+    "State":"FL",
+    "County":"Flagler ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Flagler, FL",
+    "trimmed":"Flagler"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -84.800499,-84.800499 ]
+    },
+    "properties": {
+    "CountyFull":"Franklin  FL",
+    "State":"FL",
+    "County":"Franklin ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Franklin, FL",
+    "trimmed":"Franklin"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.8099976,-81.8099976 ]
+    },
+    "properties": {
+    "CountyFull":"Hardee  FL",
+    "State":"FL",
+    "County":"Hardee ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Hardee, FL",
+    "trimmed":"Hardee"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.1659012,-81.1659012 ]
+    },
+    "properties": {
+    "CountyFull":"Hendry  FL",
+    "State":"FL",
+    "County":"Hendry ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Hendry, FL",
+    "trimmed":"Hendry"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.3410034,-81.3410034 ]
+    },
+    "properties": {
+    "CountyFull":"Highlands  FL",
+    "State":"FL",
+    "County":"Highlands ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Highlands, FL",
+    "trimmed":"Highlands"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.3469009,-82.3469009 ]
+    },
+    "properties": {
+    "CountyFull":"Hillsborough  FL",
+    "State":"FL",
+    "County":"Hillsborough ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Hillsborough, FL",
+    "trimmed":"Hillsborough"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.9154968,-81.9154968 ]
+    },
+    "properties": {
+    "CountyFull":"Lee  FL",
+    "State":"FL",
+    "County":"Lee ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Lee, FL",
+    "trimmed":"Lee"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.7885971,-82.7885971 ]
+    },
+    "properties": {
+    "CountyFull":"Levy  FL",
+    "State":"FL",
+    "County":"Levy ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Levy, FL",
+    "trimmed":"Levy"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.3574982,-82.3574982 ]
+    },
+    "properties": {
+    "CountyFull":"Manatee  FL",
+    "State":"FL",
+    "County":"Manatee ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Manatee, FL",
+    "trimmed":"Manatee"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.1856995,-81.1856995 ]
+    },
+    "properties": {
+    "CountyFull":"Monroe  FL",
+    "State":"FL",
+    "County":"Monroe ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Monroe, FL",
+    "trimmed":"Monroe"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -80.8886032,-80.8886032 ]
+    },
+    "properties": {
+    "CountyFull":"Okeechobee  FL",
+    "State":"FL",
+    "County":"Okeechobee ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Okeechobee, FL",
+    "trimmed":"Okeechobee"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.4389038,-82.4389038 ]
+    },
+    "properties": {
+    "CountyFull":"Pasco  FL",
+    "State":"FL",
+    "County":"Pasco ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Pasco, FL",
+    "trimmed":"Pasco"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.7396011,-82.7396011 ]
+    },
+    "properties": {
+    "CountyFull":"Pinellas  FL",
+    "State":"FL",
+    "County":"Pinellas ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Pinellas, FL",
+    "trimmed":"Pinellas"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.7443008,-81.7443008 ]
+    },
+    "properties": {
+    "CountyFull":"Putnam  FL",
+    "State":"FL",
+    "County":"Putnam ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Putnam, FL",
+    "trimmed":"Putnam"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.3649979,-82.3649979 ]
+    },
+    "properties": {
+    "CountyFull":"Sarasota  FL",
+    "State":"FL",
+    "County":"Sarasota ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Sarasota, FL",
+    "trimmed":"Sarasota"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.4098969,-81.4098969 ]
+    },
+    "properties": {
+    "CountyFull":"St. Johns  FL",
+    "State":"FL",
+    "County":"St. Johns ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"St. Johns, FL",
+    "trimmed":"St. Johns"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -84.3756027,-84.3756027 ]
+    },
+    "properties": {
+    "CountyFull":"Wakulla  FL",
+    "State":"FL",
+    "County":"Wakulla ",
+    "1972":"1",
+    "2001":"1",
+    "StateX":-79.1308975,
+    "StateY":35.526001,
+    "countyfull2":"Wakulla, FL",
+    "trimmed":"Wakulla"
+    }
+  }
+]
+}
