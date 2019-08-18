@@ -349,6 +349,110 @@
        "type": "Point",
        "coordinates":  [ -79.1308975,35.526001 ]
     },
+    "1972":"1",
+    "2001":"1",
+    "CountyX":-82.3574982,
+    "CountyY":-82.3574982,
+    "countyfull2":"Manatee, FL",
+    "trimmed":"Manatee"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.5158, 27.6648 ]
+    },
+    "properties": {
+    "CountyFull":"Monroe  FL",
+    "State":"FL",
+    "County":"Monroe ",
+    "1972":"1",
+    "2001":"1",
+    "CountyX":-81.1856995,
+    "CountyY":-81.1856995,
+    "countyfull2":"Monroe, FL",
+    "trimmed":"Monroe"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.5158, 27.6648 ]
+    },
+    "properties": {
+    "CountyFull":"Okeechobee  FL",
+    "State":"FL",
+    "County":"Okeechobee ",
+    "1972":"1",
+    "2001":"1",
+    "CountyX":-80.8886032,
+    "CountyY":-80.8886032,
+    "countyfull2":"Okeechobee, FL",
+    "trimmed":"Okeechobee"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.5158, 27.6648 ]
+    },
+    "properties": {
+    "CountyFull":"Pasco  FL",
+    "State":"FL",
+    "County":"Pasco ",
+    "1972":"1",
+    "2001":"1",
+    "CountyX":-82.4389038,
+    "CountyY":-82.4389038,
+    "countyfull2":"Pasco, FL",
+    "trimmed":"Pasco"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.5158, 27.6648 ]
+    },
+    "properties": {
+    "CountyFull":"Pinellas  FL",
+    "State":"FL",
+    "County":"Pinellas ",
+    "1972":"1",
+    "2001":"1",
+    "CountyX":-82.7396011,
+    "CountyY":-82.7396011,
+    "countyfull2":"Pinellas, FL",
+    "trimmed":"Pinellas"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.5158, 27.6648 ]
+    },
+    "properties": {
+    "CountyFull":"Putnam  FL",
+    "State":"FL",
+    "County":"Putnam ",
+    "1972":"1",
+    "2001":"1",
+    "CountyX":-81.7443008,
+    "CountyY":-81.7443008,
+    "countyfull2":"Putnam, FL",
+    "trimmed":"Putnam"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.5158, 27.6648 ]
+    },
     "properties": {
     "CountyFull":"Sarasota  FL",
     "State":"FL",
@@ -365,7 +469,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -79.1308975,35.526001 ]
+       "coordinates":  [ -81.5158, 27.6648 ]
     },
     "properties": {
     "CountyFull":"St. Johns  FL",
@@ -383,7 +487,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -79.1308975,35.526001 ]
+       "coordinates":  [ -81.5158, 27.6648 ]
     },
     "properties": {
     "CountyFull":"Wakulla  FL",
