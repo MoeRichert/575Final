@@ -127,7 +127,7 @@ map.addControl(new SequenceControl());
 
 	//set slider attributes
 	$('.range-slider').attr({
-		max: 6,
+		max: 7,
 		min: 0,
 		value: 0,
 		step: 1
