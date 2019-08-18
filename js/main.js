@@ -85,10 +85,10 @@ function createMap(map, background, largegroup, zoomgroup, csvData, georefData){
         // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
         zoom: 4,
         layers: [SimpleDisplay]
-
-        addData(mymap, states, seStates, counties, csvData);
-
+        
     });
+        addData(mymap, states, seStates, counties, csvData);
+}
 
 function addData(mymap, background, largegroup, zoomgroup, csvData){
     // tile layer
@@ -125,6 +125,7 @@ function changeLayers(mymap) {
 };
 
 // function to add the initial layer
+/*
 function layers() {
 	var allLayers = {};
 
@@ -513,5 +514,6 @@ function createDropdown(){
 // highlight
 
 // highlight2
+*/
 
 $(document).ready(initialize);
