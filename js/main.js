@@ -60,8 +60,8 @@ function getData(map){
             
             }
     });
-
-    //load the data
+}
+/*    //load the data
     $.ajax("data/Counties.geojson", {
         dataType: "json",
         success: function(response){
@@ -72,16 +72,23 @@ function getData(map){
             //call funtion to create slider
            
         }
-    });
-};
+    });*/
+
 //Step 3: build an attributes array from the data
 function processData(data){
     //empty array to hold attributes
     var attributes = [];
-    
+    console.log(attributes);
     //properties of the first feature in the dataset
     var properties = data.features[0].properties;
-    console.log(properties);
+    
+    //push each attribute name into attributes array
+    for (var attribute in properties){
+        if (attribute.indexOf("0")>=0){ //Grabs all of the Year Attributes 
+        attributes.push(attribute);
+        };
+    };
+    
     return attributes;
 };
 
@@ -94,6 +101,15 @@ function createPropSymbols(data, map, attributes){
         }
     }).addTo(map);
 };
+
+function pointToLayer(feature,latlng, attributes){
+    var attribute = attributes[0];
+        
+};
+
+/*var attValue = Number(feature.properties[attribute]);
+
+var popupContent = "<p><b>State:</b> " + feature.properties.NAME ;*/
 
 //Create new sequence controls
 function createSequenceControls(map, attributes){   
@@ -153,7 +169,7 @@ map.addControl(new SequenceControl());
 		}
 		$('.range-slider').val(index);
         console.log(index);
-		updatePropSymbols(map, attributes[index]);
+		//updatePropSymbols(map, attributes[index]);
 	});
 }
 
