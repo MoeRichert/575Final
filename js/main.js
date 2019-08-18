@@ -46,7 +46,7 @@ function createMap(){
 function getData(map){
     //load the data
     
-    $.ajax("data/States1.geojson", {
+    $.ajax("data/StatesY.geojson", {
         dataType: "json",
         success: function(response){
             //create an attributes array
