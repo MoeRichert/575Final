@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 window.onload = initialize();
 
 function initialize(){
@@ -188,5 +190,5 @@ function mergeData(geoj, csvd, attribs){
     return geoj
 };
 
-
+}
 
