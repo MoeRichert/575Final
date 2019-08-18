@@ -1,195 +1,99 @@
-$(document).ready(function() {
+//function to instantiate the Leaflet map
+function createMap(){
 
-window.onload = initialize();
-
-function initialize(){
-	getData();
-};
-
-// global layers
-//var SimpleDisplay = L.layerGroup();
-//var OtherDisplay = L.layerGroup();
-
-//function to translate topojsons
-
-// global variables
-var expressed = "Disaster_Type";
-//var attributes;
-//var sliderval;
-//var mymap;
-var width = 500,
-    height = 600;
-
-    //create Albers equal area conic projection
-    //var projection = d3.geoAlbers()
-    //    .center([-5.45, 30.87])
-    //    .rotate([81.00, 0, 0])
-    //    .parallels([29.27, 39.59])
-    //    .scale(2371.72)
-    //    .translate([width / 2, height / 2]);
+    var mbAttr = 'Map created by: Moe R, Stephanie B, and Dwight F';
     
-    //set path
-    //var path = d3.geoPath()
-    //    .projection(projection);
-    
-    // clear old
-    //    d3.select(".map").select("g").selectAll("path").remove();
-    
-    //create new svg container for the map
-    var map = d3.select("body")
-        .append("svg")
-        .attr("class", "map")
-        .attr("width", width)
-        .attr("height", height);
+    var mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZGZpZWxkMjMiLCJhIjoiY2p4NThuaGYxMDB3bDQ4cXd0eWJiOGJoeSJ9.T94xCeDwJ268CmzfMPXdmw';
 
-//scales
-//var x = d3.scaleLinear()
-//    .range([])
-//    .domain([]);
-
-//var y = d3.scaleLinear()
-//    .range([])
-//    .domain([]);
-
-// assigns the respected geojsons to the apropriate variables
-function getData(mymap) {
-
-	d3.queue()
-        d3.queue()
-        .defer(d3.csv, "data/FEMADeclarations.csv") //load csv
-        .defer(d3.json, "data/US_States.topojson") //load background
-        .defer(d3.json, "data/States.topojson")
-        .defer(d3.json, "data/Counties.topojson") //load analysis spatial data
-        .await(callback);
+    var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+    dark  = L.tileLayer(mbUrl, {id: 'mapbox.dark',   attribution: mbAttr}),
+    outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors',   attribution: mbAttr});
     
-function callback(error, csvData, usStates, selectStates, rawCounties){
+    var width = window.innerWidth * 0.3,
+    height = 450; // defines map width
     
-    //translate TopoJSON
-        var states = topojson.feature(usStates, usStates.objects.US_States),
-            seStates = topojson.feature(selectStates, selectStates.objects.States),
-            counties = topojson.feature(rawCounties, rawCounties.objects.Counties).features;
-    
-    //attribute array
-        var attrArray = ("Disaster_Type", "Incident_Type", "County")
-
-        
-        //join csv data to GeoJSON
-        CountiesData = mergeData(counties, csvData, attrArray);
-    
-    //add vector data to map
-    //    var NAm = map.append("path")
-    //        .datum(procallStates)
-    //        .attr("class", "state")
-    //        .attr("d", path);
-    //
-    //    var SelStates = map.append("path")
-    //        .datum(procselectStates)
-    //        .attr("class", "state")
-    //        .attr("d", path);
-    //    
-    //    var CountiesD = map.selectAll(".county")
-    //        .data(CountiesData)
-    //        .enter()
-    //        .append("path")
-    //        .attr(expressed, function(d){
-    //            return "NAME " + d.properties.expressed;
-    //        })
-    //        .attr("d", path);
-    
-//    console.log(CountiesD);
-    
-    //process for leaflet
-    dataprocess (states);
-    dataprocess (seStates);
-    dataprocess (counties);
-    
-    var basemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-    minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
+    //create the map*/
+    var map = L.map('map', {
+        center: [32.38, -84.00],//Coordinated to center the map for Midwestern States
+        zoom: 5.5,
+        layers:outdoors
     });
     
-    createMap(map, states, seStates, counties, csvData, CountiesData);
-    //createCharts();
-    //createTogglesorDropdowns();
+    	var baseLayers = {
+		"Topographic": outdoors,
+        "Grayscale": grayscale,
+		"Darkscale": dark,
+                
+        };
     
-}; //callback
+/*        // define projection of map
+        var projection = d3.geoAlbers()
+            .center([-5.45, 30.87])
+            .rotate([81.00, 0, 0])
+            .parallels([29.27, 39.59])
+            .scale(2371.72) //sets zoom scale
+            .translate([width / 2 , height / 2]); 
 
-}; // close to getData
+        var path = d3.geoPath() //defines path variable that holds objects in map
+            .projection(projection);*/
     
-//process for leaflet
-    function dataprocess (datum){
-        $.ajax(datum, {
-            dataType: "json",
-            success: function(response){
-                //create a Leaflet GeoJSON layer and add it to the map
-                L.geoJson(response).addTo(map);
-            }
-        })};
-
-// sets map element and its properties
-function createMap(mapcall, background, largegroup, zoomgroup, csvData, georefData){
-
-// create map, map div, and map's initial view
-	mymap = L.map('map', {
-        // set map boundaries
-        // Set latitude and longitude of the map center
-        center: [38.99766, -100.90838],
-        // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
-        zoom: 4,
-        //layers: [SimpleDisplay]
-        
-        
-        
-        
-    });
-                     addData(mymap, states, seStates, counties, csvData)
-};
-        
-function addData(mapcall, background, largegroup, zoomgroup, csvData){    
-    // tile layer
-    basemap.addTo(mapcall);
-
-	// add navigation bar to the map
-	L.control.navbar().addTo(mapcall);
-	
-	//add southern states
-    seStates.addTo(mapcall).bringToFront();
-	
-	// add state borders
-    states.addTo(mapcall).bringToBack();
-
-	// when the map zooms, change the display level
-	mymap.on('zoomend', function (e) {
-		changeLayers(mapcall);
-	});
-	//layers(mapcall, background, largegroup, zoomgroup, csvData, county_eventsCSV);
     
-};
-// close to addData
-
-//define mergedata and append csvdata to county data
-function mergeData(geoj, csvd, attribs){
-    // append csv attributes to geojson
-        for (let i = 0; i < csvd.length; i++) {
-            let tblRow = csvd[i]; // get row
-            let rowID = tblRow.County; // get row ID
-            for (let a = 0; a < geoj.length; a++) {
-                let featProperties = geoj[a].properties; // get feature
-                let featID = featProperties.Name; // get feature ID
-                if (featID == rowID) { // on match...
-                    attribs.forEach(function (attribs) {
-                        let val = parseFloat(tblRow[attribs]); // get attribute
-                        featProperties[attribs] = val; // set attribute
-                    });
-                }
-            }
-        }
-    return geoj
-};
-
+    //call getData function
+    getData(map);
+    
+    L.control.layers(baseLayers).addTo(map);
 }
+function getData(map){
+    //load the data
+    
+    $.ajax("data/States.geojson", {
+        dataType: "json",
+        success: function(response){
+            //create an attributes array
+            var attributes = processData(response);
+            //call function to create proportional symbols
+            createPropSymbols(response, map,attributes);
+            //call funtion to create slider
+            createSequenceControls(map, attributes);
+            //call function to create legend
+            //createLegend(map, attributes);
+            
+        }
+    });
+}
+//Step 2: Import GeoJSON data
+function getData(map){
+    //load the data
+    $.ajax("data/States.geojson", {
+        dataType: "json",
+        success: function(response){
+            //create an attributes array
+            var attributes = processData(response);
+            //call function to create proportional symbols
+            createPropSymbols(response, map,attributes);
+            //call funtion to create slider
+        }
+    });
+}
+//Step 3: build an attributes array from the data
+function processData(data){
+    //empty array to hold attributes
+    var attributes = [];
+    
+    //properties of the first feature in the dataset
+    var properties = data.features[0].properties;
+    console.log(properties);
+    return attributes;
+};
 
-)
+//Step 3: Add circle markers for point features to the map
+function createPropSymbols(data, map, attributes){
+    //create a Leaflet GeoJSON layer and add it to the map
+    L.geoJson(data, {
+        pointToLayer: function(feature, latlng){
+        return pointToLayer(feature, latlng, attributes);
+        }
+    }).addTo(map);
+};
+
+$(document).ready(createMap);
