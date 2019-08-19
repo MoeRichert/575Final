@@ -1,4 +1,7 @@
 //function to instantiate the Leaflet map
+
+var attributes = [] 
+    
 function createMap(){
 
     var mbAttr = 'Map created by: Moe R, Stephanie B, and Dwight F';
@@ -49,14 +52,16 @@ function getData(map){
     $.ajax("data/StatesY.geojson", {
         dataType: "json",
         success: function(response){
+            L.geoJson(response, {
+                processData(response)
+                {style: style},                
+            }).addTo(map);
             //create an attributes array
-            var attributes = processData(response);
+            attributes = processData(response);
             //call function to create proportional symbols
             createPropSymbols(response, map,attributes);
             //call funtion to create slider
             createSequenceControls(map, attributes);
-            //call function to create legend
-            //createLegend(map, attributes);
             
             }
     });
@@ -77,7 +82,6 @@ function getData(map){
 //Step 3: build an attributes array from the data
 function processData(data){
     //empty array to hold attributes
-    var attributes = [];
     console.log(attributes);
     //properties of the first feature in the dataset
     var properties = data.features[0].properties;
@@ -92,32 +96,29 @@ function processData(data){
     return attributes;
 };
 
+//Update Prop Symbols on hte map based on the advance of time slider
+function updatePropSymbols(){
+    
+}; 
+
 //Step 3: Add circle markers for point features to the map
 function createPropSymbols(data, map, attributes){
     //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(data, {
-        pointToLayer: function(feature, latlng){
-        return pointToLayer(feature, latlng, attributes);
-        }
-    }).addTo(map);
-};
-
-function pointToLayer(feature,latlng, attributes){
-    var attribute = attributes[0];
-        
+    
 };
 
 function getColor(d){
-    return d > 5 = "#ffff80" :
-           d > 10 = "#fad155" :
-           d > 15 = "#f2a72e" :
-           d > 20 = "#ad5313" :
-           d > 25 = "#6b0000" :
+    return d > 5 ? '#ffff80' :
+           d > 10 ? '#fad155' :
+           d > 15 ? '#f2a72e' :
+           d > 20 ? '#ad5313' :
+           d > 25 ? '#6b0000' :
+        '#ffff80';
 }
 
 function style(feature){
     return {
-        fillColor: getColor(feature.properties.),
+        fillColor: getColor(feature.properties.attributes[0]),
 		weight: 2,
 		opacity: 1,
 		color: 'white',
@@ -126,7 +127,7 @@ function style(feature){
     };
 }
 
-L.geoJson(statesData,{style:style}).addTo(map);*/
+//L.geoJson(StatesY,{style:style}).addTo(map);
 
 /*var attValue = Number(feature.properties[attribute]);
 
@@ -191,7 +192,7 @@ map.addControl(new SequenceControl());
 		$('.range-slider').val(index);
         console.log(index);
         
-		//updatePropSymbols(map, attributes[index]);
+		updatePropSymbols(map, attributes[index]);
 	});
 }
 
