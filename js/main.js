@@ -196,7 +196,6 @@ function getData(map){
     .defer(d3.json, 'data/REGION4.geojson')
     .await(callback);
 
-
   });
 };
 
