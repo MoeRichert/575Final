@@ -3,18 +3,19 @@ var attrArray = ['STUSPS','NAME','tot1950','tot1960','tot1970','tot1980','tot199
 var expressed = attrArray[0];
 
 
+
 // Basemap options located on top right of map
 var grayscale   = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+}),
+dark  = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
 	maxZoom: 20,
 	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }),
 outdoors = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}),
-    dark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }),
 empty = L.tileLayer('', {
     maxZoom: 20,
@@ -28,12 +29,13 @@ function createMap(){
             center: [32.38, -84.00],
             zoom: 5.4,
             minZoom: 4,
-            layers:grayscale
+            layers:outdoors
         });
             var baseLayers = {
             "Grayscale": grayscale,
             "Topographic": outdoors,
-            "None": empty,
+            "Darkscale": dark,
+                "None": empty,
         };
 
             //call getData
